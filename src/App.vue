@@ -1,15 +1,36 @@
 <template>
   <div id="app">
-    <div id="nav">
+    <div v-if="isLoggedIn" id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/createlesson">Create Lesson</router-link> | 
       <router-link to="/createpupil">Create Pupil</router-link> |
-      <router-link to="/pupilslist">Pupils List</router-link>
+      <router-link to="/pupilslist">View Pupils</router-link> |
+      <router-link to="/lessonview">View Lessons</router-link> |
+      <a @click="logout">Logout</a>
     </div>
-    <router-view/>
+    <div v-else>
+      <router-link to="/register">Register</router-link> |
+      <router-link to="/login">Login</router-link>
+    </div>
+    <router-view />
   </div>
 </template>
-
+<script>
+export default {
+  name: 'App',
+  computed: {
+    isLoggedIn: function() {
+      return this.$store.getters.isAuthenticated
+    }
+  },
+  methods: {
+    async logout() {
+      await this.$store.dispatch('LogOut')
+      this.$router.push('login')
+    }
+  }
+}
+</script>
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
