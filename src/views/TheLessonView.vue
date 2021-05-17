@@ -21,18 +21,18 @@
 </template>
 
 <script>
-import axios from 'axios'
+import axios from 'axios';
 export default {
     data() {
         return {
-            lessons: []
+            lessons: null
         }
     },
     mounted() {
-        axios.get("http://localhost:3000/lessons")
+          axios.get("http://localhost:3000/lessons")
             .then(response => this.lessons = response.data)
             .catch(error => {
-                console.log(error)
+              console.log(error)
             });
     },
     methods: {
@@ -50,6 +50,19 @@ export default {
               console.log(error)
             });
         }
+      },
+      async loadLessons() {
+        this.loading = true;
+        let apiUrl = 'http://127.0.0.1:3000/lessons/';
+        console.log('loading lessons ...');
+        try {
+          let response = await this.axios.get(apiUrl);
+          this.lessons = response.data;
+          console.log(response);
+        } catch(e) {
+          console.error(e);
+        }
+        this.loading = false;
       }
     }
 }

@@ -1,31 +1,6 @@
 {
   "lessons": [
     {
-      "id": 1,
-      "status": "",
-      "type": 1,
-      "autoname": "default lesson name",
-      "name": "deep diving",
-      "frequency": "Weekly",
-      "date": "2021-04-16 21:57 Fr",
-      "starttime": 1600,
-      "endtime": 1630,
-      "location": "the ocean",
-      "pupils": [
-        {
-          "value": 5,
-          "display": "holla",
-          "selectedObject": {
-            "firstname": "holla",
-            "lastname": "diefee",
-            "created": "2021-04-30T15:01:42.320Z",
-            "works": [],
-            "id": 5
-          }
-        }
-      ]
-    },
-    {
       "id": 2,
       "status": "",
       "type": 1,
@@ -149,16 +124,81 @@
           }
         }
       ]
+    },
+    {
+      "id": 7,
+      "status": "",
+      "type": 1,
+      "autoname": "default lesson name",
+      "name": "public talk",
+      "frequency": "Weekly",
+      "date": "2021-05-14 22:00 Fr",
+      "starttime": 1600,
+      "endtime": 1630,
+      "location": "rehearsal room",
+      "pupils": [
+        {
+          "value": 11,
+          "display": "barbara",
+          "selectedObject": {
+            "firstname": "barbara",
+            "lastname": "schöneberger",
+            "created": "2021-05-14T21:11:09.083Z",
+            "works": null,
+            "id": 11
+          }
+        },
+        {
+          "value": 10,
+          "display": "roman",
+          "selectedObject": {
+            "firstname": "roman",
+            "lastname": "herzog",
+            "created": "2021-05-14T21:10:55.672Z",
+            "works": [],
+            "id": 10
+          }
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "status": "",
+      "type": 1,
+      "autoname": "default lesson name",
+      "name": "wayback",
+      "frequency": "Unsteady",
+      "date": "1970-01-01 00:00 Th",
+      "starttime": 1600,
+      "endtime": 1630,
+      "location": "here",
+      "pupils": [
+        {
+          "value": 6,
+          "display": "abu",
+          "selectedObject": {
+            "firstname": "abu",
+            "lastname": "neuhold",
+            "created": "2021-04-30T17:46:40.785Z",
+            "works": [],
+            "id": 6
+          }
+        },
+        {
+          "value": 9,
+          "display": "henry",
+          "selectedObject": {
+            "firstname": "henry",
+            "lastname": "rollins",
+            "created": "2021-05-03T19:09:50.232Z",
+            "works": [],
+            "id": 9
+          }
+        }
+      ]
     }
   ],
   "pupils": [
-    {
-      "firstname": "roman",
-      "lastname": "herzog",
-      "created": "2021-04-30T14:56:22.867Z",
-      "works": [],
-      "id": 3
-    },
     {
       "firstname": "holla",
       "lastname": "diefee",
@@ -186,6 +226,27 @@
       "created": "2021-04-30T17:52:50.269Z",
       "works": null,
       "id": 8
+    },
+    {
+      "firstname": "henry",
+      "lastname": "rollins",
+      "created": "2021-05-03T19:09:50.232Z",
+      "works": [],
+      "id": 9
+    },
+    {
+      "firstname": "roman",
+      "lastname": "herzog",
+      "created": "2021-05-14T21:10:55.672Z",
+      "works": [],
+      "id": 10
+    },
+    {
+      "firstname": "barbara",
+      "lastname": "schöneberger",
+      "created": "2021-05-14T21:11:09.083Z",
+      "works": null,
+      "id": 11
     }
   ]
 }

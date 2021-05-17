@@ -49,6 +49,14 @@ export default {
   color: #2c3e50;
 }
 
+a {
+  font-weight: bold;
+  text-decoration: underline;
+  cursor: crosshair;
+  color: #191236;
+}
+
+
 #nav a.router-link-exact-active {
   color: #42b983;
 }
