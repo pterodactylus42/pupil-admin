@@ -14,8 +14,44 @@ POST /pupils
 GET /lessons
 POST /lessons
 
-using couchdb and nano as database
+database structure
+------------------
 
+lessons
+    id
+    pupils
+    works
+    date
+    venues
+    frequency
+    duration
+
+pupils
+    id
+    firstname
+    lastname
+    created
+
+works
+    id
+    composer
+    title
+
+venues
+    id
+    name
+    town
+    street
+    streetnumber
+    zipcode
+
+frequencies
+    id
+    periodindays
+
+durations
+    id
+    minutes
 
 ## Project setup
 ```

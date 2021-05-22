@@ -11,13 +11,14 @@
             </div>
             <div>
               <select id="state" v-model="frequency">
-                <option selected>Unsteady</option>
+                <option value="" disabled selected>Pick Frequency</option>
+                <option>Unsteady</option>
                 <option>Weekly</option>
                 <option>Every two weeks</option>
               </select>
             </div>
             <div>
-              <date-picker :date="startTime" :option="timeoption"></date-picker>
+              <date-picker :date="lessondate" :option="timeoption"></date-picker>
             </div>
             <div>
               <autocomplete-vue :source="pupils" placeholder="search pupils" results-display="firstname" @selected="addPupilToLesson" /> 
@@ -60,43 +61,14 @@ export default {
       formError: '',
       formSuccess: false,
 
-      startTime: {
-        time: '',
-      },
-      endTime: {
-        time: '',
-      },
-
-      option: {
-        type: 'day',
-        week: ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'],
-        month: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-        format: 'YYYY-MM-DD',
-        placeholder: 'pick a date',
-        color: {
-          header: '#ccc',
-          headerText: '#f00',
-        },
-        buttons: {
-          ok: 'Ok',
-          cancel: 'Cancel',
-        },
-        overlayOpacity: 0.5, // 0.5 as default
-        dismissible: true, // as true as default
-      },
+      lessondate:  {},
+      
       timeoption: {
         type: 'min',
         week: ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'],
         month: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
         format: 'YYYY-MM-DD HH:mm dd',
         placeholder: 'pick a date',
-
-      },
-      multiOption: {
-        type: 'multi-day',
-        week: ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'],
-        month: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-        format: 'YYYY-MM-DD HH:mm',
       },
     };
   },
@@ -106,17 +78,16 @@ export default {
   },
   methods: {
     submitForm() {
-      // todo!!!
       let errors = false;
       if (this.name === '') errors = true;
       if (this.location === '') errors = true;
       if (this.frequency === '') errors = true;
-      if (this.startTime.time === '') errors = true;
+      if (this.lessondate === '') errors = true;
       if (errors) {
         this.formError = 'Please fill in all fields....';
         return false;
       }
-      // your sendmail function or anything goes here
+      console.log(this.lessondate);
       const sendlesson = {
         id: this.lessonID,
         status: this.status,
@@ -124,7 +95,9 @@ export default {
         autoname: "default lesson name",
         name: this.name,
         frequency: this.frequency,
-        date: this.startTime.time,
+        date: this.lessondate.time,
+        //todo 
+        weekday: this.$moment(this.lessondate.time).format('dd'),
         starttime: 1600,
         endtime: 1630,
         location: this.location,
@@ -148,7 +121,7 @@ export default {
       this.name = '';
       this.location = '';
       this.frequency = '';
-      this.startTime.time = '';
+      this.lessondate = '';
       this.selectedpupils = null;
       this.formSuccess = false;
     }

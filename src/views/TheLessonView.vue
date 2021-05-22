@@ -5,7 +5,7 @@
         <ul>
             <li v-if="!lesson.name">{{lesson.autoname}}</li>
             <li v-else>{{lesson.name}}</li>
-            <li>Let's meet on {{lesson.date}} </li>
+            <li>Let's meet on {{lesson.date}}, {{lesson.weekday}} </li>
             <li>We're doing this {{lesson.frequency}}</li>
             <li>Hope you get there on time: {{lesson.location}}</li>
             <div v-if="lesson.pupils">

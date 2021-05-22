@@ -2,8 +2,8 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import axios from 'axios'
 
+import axios from 'axios'
 axios.defaults.withCredentials = true
 axios.defaults.baseURL = 'http://localhost:8080/'
 
@@ -20,10 +20,19 @@ axios.interceptors.response.use(undefined, function (error) {
 
 Vue.use(axios)
 
+
+import moment from 'moment';
+Vue.prototype.$moment = moment;
+
+
 Vue.config.productionTip = false
 
 new Vue({
   router,
   store,
+  created() {
+    console.log('main vue instance created ...')
+    this.$store.dispatch('getInitialState');
+  },
   render: h => h(App)
 }).$mount('#app')

@@ -6,7 +6,7 @@
       <router-link to="/createpupil">Create Pupil</router-link> |
       <router-link to="/pupilslist">View Pupils</router-link> |
       <router-link to="/lessonview">View Lessons</router-link> |
-      <a @click="logout">Logout</a>
+      <a @click="logout">Logout {{ whoAmI }}</a>
     </div>
     <div v-else>
       <router-link to="/register">Register</router-link> |
@@ -21,6 +21,9 @@ export default {
   computed: {
     isLoggedIn: function() {
       return this.$store.getters.isAuthenticated
+    },
+    whoAmI: function() {
+      return this.$store.getters.StateUser
     }
   },
   methods: {

@@ -3,7 +3,7 @@
     <h3>Regular weekly Lessons</h3>
     <div class="days">
         <div class="monday">
-          <week-day day="Monday" v-bind:lessonsonday="lessonsMonday"></week-day>
+          <week-day day="Monday"></week-day>
         </div>
         <div class="tuesday">
           <week-day day="Tuesday"></week-day>
@@ -49,13 +49,14 @@ export default {
   },
   computed: {
     sortedLessons: function() {
-      return this.lessons.slice(0).sort(function(a, b) {
-        var dt_a = a.date.split(/[: T-]/).map(parseFloat);
-        var dt_b = b.date.split(/[: T-]/).map(parseFloat);
-        let c = new Date(dt_a[0], dt_a[1] - 1, dt_a[2], dt_a[3] || 0, dt_a[4] || 0, dt_a[5] || 0, 0);
-        let d = new Date(dt_b[0], dt_b[1] - 1, dt_b[2], dt_b[3] || 0, dt_b[4] || 0, dt_b[5] || 0, 0);
-        return d - c;
-      });
+      // return this.lessons.slice(0).sort(function(a, b) {
+      //   var dt_a = a.date.split(/[: T-]/).map(parseFloat);
+      //   var dt_b = b.date.split(/[: T-]/).map(parseFloat);
+      //   let c = new Date(dt_a[0], dt_a[1] - 1, dt_a[2], dt_a[3] || 0, dt_a[4] || 0, dt_a[5] || 0, 0);
+      //   let d = new Date(dt_b[0], dt_b[1] - 1, dt_b[2], dt_b[3] || 0, dt_b[4] || 0, dt_b[5] || 0, 0);
+      //   return d - c;
+      // });
+      return this.lessons;
     },
     lessonsByDay: function(dayString) {
       var copy = [];

@@ -196,6 +196,93 @@
           }
         }
       ]
+    },
+    {
+      "id": 9,
+      "status": "",
+      "type": 1,
+      "autoname": "default lesson name",
+      "name": "hello world lesson",
+      "frequency": "Unsteady",
+      "date": "1970-01-01 00:01 Th",
+      "starttime": 1600,
+      "endtime": 1630,
+      "location": "the world",
+      "pupils": [
+        {
+          "value": 6,
+          "display": "abu",
+          "selectedObject": {
+            "firstname": "abu",
+            "lastname": "neuhold",
+            "created": "2021-04-30T17:46:40.785Z",
+            "works": [],
+            "id": 6
+          }
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "status": "",
+      "type": 1,
+      "autoname": "default lesson name",
+      "name": "asdf",
+      "frequency": "Every two weeks",
+      "date": {
+        "time": "2021-05-13 19:56 Th"
+      },
+      "weekday": "2021-05-16T22:00:00.000Z",
+      "starttime": 1600,
+      "endtime": 1630,
+      "location": "asdf",
+      "pupils": []
+    },
+    {
+      "id": 11,
+      "status": "",
+      "type": 1,
+      "autoname": "default lesson name",
+      "name": "sadf",
+      "frequency": "Unsteady",
+      "date": {
+        "time": "2021-05-12 07:57 We"
+      },
+      "weekday": null,
+      "starttime": 1600,
+      "endtime": 1630,
+      "location": "asdf",
+      "pupils": []
+    },
+    {
+      "id": 12,
+      "status": "",
+      "type": 1,
+      "autoname": "default lesson name",
+      "name": "asdf",
+      "frequency": "Weekly",
+      "date": {
+        "time": "2021-05-06 22:56 Th"
+      },
+      "weekday": "Mo",
+      "starttime": 1600,
+      "endtime": 1630,
+      "location": "asdf",
+      "pupils": []
+    },
+    {
+      "id": 13,
+      "status": "",
+      "type": 1,
+      "autoname": "default lesson name",
+      "name": "asdf",
+      "frequency": "Every two weeks",
+      "date": "2021-05-28 20:56 Fr",
+      "weekday": "Invalid date",
+      "starttime": 1600,
+      "endtime": 1630,
+      "location": "adsf",
+      "pupils": []
     }
   ],
   "pupils": [
