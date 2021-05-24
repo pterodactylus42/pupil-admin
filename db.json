@@ -1,339 +1,66 @@
 {
   "lessons": [
     {
-      "id": 2,
-      "status": "",
-      "type": 1,
-      "autoname": "default lesson name",
-      "name": "yoga",
-      "frequency": "Unsteady",
-      "date": "2021-04-16 23:59 Fr",
-      "starttime": 1600,
-      "endtime": 1630,
-      "location": "rehearsal room",
-      "pupils": [
-        {
-          "value": 3,
-          "display": "roman",
-          "selectedObject": {
-            "firstname": "roman",
-            "lastname": "herzog",
-            "created": "2021-04-30T14:56:22.867Z",
-            "works": [],
-            "id": 3
-          }
-        }
-      ]
-    },
-    {
-      "id": 3,
-      "status": "",
-      "type": 1,
-      "autoname": "default lesson name",
-      "name": "shopping queen",
-      "frequency": "Every two weeks",
-      "date": "2021-04-30 23:59 Fr",
-      "starttime": 1600,
-      "endtime": 1630,
-      "location": "schönhauser allee",
-      "pupils": [
-        {
-          "value": 3,
-          "display": "roman",
-          "selectedObject": {
-            "firstname": "roman",
-            "lastname": "herzog",
-            "created": "2021-04-30T14:56:22.867Z",
-            "works": [],
-            "id": 3
-          }
-        }
-      ]
-    },
-    {
-      "id": 4,
-      "status": "",
-      "type": 1,
-      "autoname": "default lesson name",
-      "name": "higher learning",
+      "id": 1,
+      "name": "gitarrenstunde",
       "frequency": "Weekly",
-      "date": "2021-04-15 20:56 Th",
-      "starttime": 1600,
-      "endtime": 1630,
-      "location": "studio",
+      "date": "2021-05-20 14:00 Th",
+      "duration": 30,
+      "venue": "musikschule",
       "pupils": [
         {
-          "value": 3,
-          "display": "roman",
+          "value": 1,
+          "display": "johann",
           "selectedObject": {
-            "firstname": "roman",
-            "lastname": "herzog",
-            "created": "2021-04-30T14:56:22.867Z",
+            "firstname": "johann",
+            "lastname": "wolfgang",
+            "created": "2021-05-24T17:42:20.092Z",
             "works": [],
-            "id": 3
+            "id": 1
           }
         }
       ]
     },
     {
-      "id": 5,
-      "status": "",
-      "type": 1,
-      "autoname": "default lesson name",
-      "name": "shouting out loud ",
-      "frequency": "Unsteady",
-      "date": "2021-04-16 20:00 Fr",
-      "starttime": 1600,
-      "endtime": 1630,
-      "location": "the forest",
-      "pupils": [
-        {
-          "value": 3,
-          "display": "roman",
-          "selectedObject": {
-            "firstname": "roman",
-            "lastname": "herzog",
-            "created": "2021-04-30T14:56:22.867Z",
-            "works": [],
-            "id": 3
-          }
-        }
-      ]
-    },
-    {
-      "id": 6,
-      "status": "",
-      "type": 1,
-      "autoname": "default lesson name",
-      "name": "in life",
-      "frequency": "Every two weeks",
-      "date": "2021-04-01 20:00 Th",
-      "starttime": 1600,
-      "endtime": 1630,
-      "location": "in vitro",
-      "pupils": [
-        {
-          "value": 8,
-          "display": "richard",
-          "selectedObject": {
-            "firstname": "richard",
-            "lastname": "löwenherz",
-            "created": "2021-04-30T17:52:50.269Z",
-            "works": null,
-            "id": 8
-          }
-        }
-      ]
-    },
-    {
-      "id": 7,
-      "status": "",
-      "type": 1,
-      "autoname": "default lesson name",
-      "name": "public talk",
+      "name": "klavierunterricht",
       "frequency": "Weekly",
-      "date": "2021-05-14 22:00 Fr",
-      "starttime": 1600,
-      "endtime": 1630,
-      "location": "rehearsal room",
-      "pupils": [
-        {
-          "value": 11,
-          "display": "barbara",
-          "selectedObject": {
-            "firstname": "barbara",
-            "lastname": "schöneberger",
-            "created": "2021-05-14T21:11:09.083Z",
-            "works": null,
-            "id": 11
-          }
-        },
-        {
-          "value": 10,
-          "display": "roman",
-          "selectedObject": {
-            "firstname": "roman",
-            "lastname": "herzog",
-            "created": "2021-05-14T21:10:55.672Z",
-            "works": [],
-            "id": 10
-          }
-        }
-      ]
+      "date": "2021-05-23 22:56 Su",
+      "duration": 30,
+      "venue": "musikschule",
+      "pupils": null,
+      "id": 2
     },
     {
-      "id": 8,
-      "status": "",
-      "type": 1,
-      "autoname": "default lesson name",
-      "name": "wayback",
+      "name": "didgeridoo",
       "frequency": "Unsteady",
-      "date": "1970-01-01 00:00 Th",
-      "starttime": 1600,
-      "endtime": 1630,
-      "location": "here",
-      "pupils": [
-        {
-          "value": 6,
-          "display": "abu",
-          "selectedObject": {
-            "firstname": "abu",
-            "lastname": "neuhold",
-            "created": "2021-04-30T17:46:40.785Z",
-            "works": [],
-            "id": 6
-          }
-        },
-        {
-          "value": 9,
-          "display": "henry",
-          "selectedObject": {
-            "firstname": "henry",
-            "lastname": "rollins",
-            "created": "2021-05-03T19:09:50.232Z",
-            "works": [],
-            "id": 9
-          }
-        }
-      ]
-    },
-    {
-      "id": 9,
-      "status": "",
-      "type": 1,
-      "autoname": "default lesson name",
-      "name": "hello world lesson",
-      "frequency": "Unsteady",
-      "date": "1970-01-01 00:01 Th",
-      "starttime": 1600,
-      "endtime": 1630,
-      "location": "the world",
-      "pupils": [
-        {
-          "value": 6,
-          "display": "abu",
-          "selectedObject": {
-            "firstname": "abu",
-            "lastname": "neuhold",
-            "created": "2021-04-30T17:46:40.785Z",
-            "works": [],
-            "id": 6
-          }
-        }
-      ]
-    },
-    {
-      "id": 10,
-      "status": "",
-      "type": 1,
-      "autoname": "default lesson name",
-      "name": "asdf",
-      "frequency": "Every two weeks",
-      "date": {
-        "time": "2021-05-13 19:56 Th"
-      },
-      "weekday": "2021-05-16T22:00:00.000Z",
-      "starttime": 1600,
-      "endtime": 1630,
-      "location": "asdf",
-      "pupils": []
-    },
-    {
-      "id": 11,
-      "status": "",
-      "type": 1,
-      "autoname": "default lesson name",
-      "name": "sadf",
-      "frequency": "Unsteady",
-      "date": {
-        "time": "2021-05-12 07:57 We"
-      },
-      "weekday": null,
-      "starttime": 1600,
-      "endtime": 1630,
-      "location": "asdf",
-      "pupils": []
-    },
-    {
-      "id": 12,
-      "status": "",
-      "type": 1,
-      "autoname": "default lesson name",
-      "name": "asdf",
-      "frequency": "Weekly",
-      "date": {
-        "time": "2021-05-06 22:56 Th"
-      },
-      "weekday": "Mo",
-      "starttime": 1600,
-      "endtime": 1630,
-      "location": "asdf",
-      "pupils": []
-    },
-    {
-      "id": 13,
-      "status": "",
-      "type": 1,
-      "autoname": "default lesson name",
-      "name": "asdf",
-      "frequency": "Every two weeks",
-      "date": "2021-05-28 20:56 Fr",
-      "weekday": "Invalid date",
-      "starttime": 1600,
-      "endtime": 1630,
-      "location": "adsf",
-      "pupils": []
+      "date": "2021-05-17 20:56 Mo",
+      "duration": 30,
+      "venue": "wiese",
+      "pupils": null,
+      "id": 3
     }
   ],
   "pupils": [
     {
-      "firstname": "holla",
-      "lastname": "diefee",
-      "created": "2021-04-30T15:01:42.320Z",
+      "firstname": "herman",
+      "lastname": "melville",
+      "created": "2021-05-24T17:54:29.738Z",
       "works": [],
-      "id": 5
+      "id": 1
     },
     {
-      "firstname": "abu",
-      "lastname": "neuhold",
-      "created": "2021-04-30T17:46:40.785Z",
-      "works": [],
-      "id": 6
-    },
-    {
-      "firstname": "henry",
-      "lastname": "second",
-      "created": "2021-04-30T17:52:38.987Z",
-      "works": [],
-      "id": 7
-    },
-    {
-      "firstname": "richard",
-      "lastname": "löwenherz",
-      "created": "2021-04-30T17:52:50.269Z",
+      "firstname": "johann wolfgang",
+      "lastname": "mozart",
+      "created": "2021-05-24T17:54:43.099Z",
       "works": null,
-      "id": 8
+      "id": 2
     },
     {
-      "firstname": "henry",
-      "lastname": "rollins",
-      "created": "2021-05-03T19:09:50.232Z",
-      "works": [],
-      "id": 9
-    },
-    {
-      "firstname": "roman",
-      "lastname": "herzog",
-      "created": "2021-05-14T21:10:55.672Z",
-      "works": [],
-      "id": 10
-    },
-    {
-      "firstname": "barbara",
-      "lastname": "schöneberger",
-      "created": "2021-05-14T21:11:09.083Z",
+      "firstname": "amadeus",
+      "lastname": "falco",
+      "created": "2021-05-24T17:54:51.204Z",
       "works": null,
-      "id": 11
+      "id": 3
     }
   ]
 }

@@ -32,7 +32,7 @@ new Vue({
   store,
   created() {
     console.log('main vue instance created ...')
-    this.$store.dispatch('getInitialState');
+    this.$store.dispatch('getState');
   },
   render: h => h(App)
 }).$mount('#app')

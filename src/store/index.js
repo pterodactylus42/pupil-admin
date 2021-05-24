@@ -25,16 +25,18 @@ export default new Vuex.Store({
       state.posts = null
     },
     UPDATE_LESSONS(state, payload) {
+      state.lessons = [];
       state.lessons = payload.data;
       console.log(payload)
     },
     UPDATE_PUPILS(state, payload) {
+      state.pupils = [];
       state.pupils = payload.data;
       console.log(payload)
     }
   },
   actions: {
-    async getInitialState({commit}) {
+    async getState({commit}) {
       console.log(' get initial state, lessons:')
       await axios.get("http://localhost:3000/lessons")
       .then(response => commit('UPDATE_LESSONS',response))

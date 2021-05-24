@@ -7,7 +7,7 @@
               <input type="text" placeholder="Lesson name" v-model="name">
             </div>
             <div>
-              <input type="text" placeholder="Location" v-model="location">
+              <input type="text" placeholder="Location" v-model="venue">
             </div>
             <div>
               <select id="state" v-model="frequency">
@@ -49,13 +49,12 @@ export default {
   data() {
     return {
       lessonID: '',
-      status: '',
-      type: '',
-      autoname: '',
+      // status: '',
+      // type: '',
+      // autoname: '',
       name: '',
       frequency: '',
-      location: '',
-      weekday: '',
+      venue: '',
       pupils: [],
       selectedpupils: [],
       formError: '',
@@ -80,27 +79,24 @@ export default {
     submitForm() {
       let errors = false;
       if (this.name === '') errors = true;
-      if (this.location === '') errors = true;
+      if (this.venue === '') errors = true;
       if (this.frequency === '') errors = true;
       if (this.lessondate === '') errors = true;
       if (errors) {
         this.formError = 'Please fill in all fields....';
         return false;
       }
-      console.log(this.lessondate);
       const sendlesson = {
         id: this.lessonID,
-        status: this.status,
-        type: 1,
-        autoname: "default lesson name",
+        // status: this.status,
+        // type: 1,
+        // autoname: "default lesson name",
         name: this.name,
         frequency: this.frequency,
         date: this.lessondate.time,
-        //todo 
-        weekday: this.$moment(this.lessondate.time).format('dd'),
-        starttime: 1600,
-        endtime: 1630,
-        location: this.location,
+        // weekday: this.lessondate.time.slice(-2),
+        duration: 30, 
+        venue: this.venue,
         pupils: this.selectedpupils
       }
       axios.post("http://localhost:3000/lessons", sendlesson)
@@ -119,9 +115,9 @@ export default {
     },
     resetFormSuccess() {
       this.name = '';
-      this.location = '';
+      this.venue = '';
       this.frequency = '';
-      this.lessondate = '';
+      this.lessondate = {};
       this.selectedpupils = null;
       this.formSuccess = false;
     }
