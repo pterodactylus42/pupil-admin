@@ -1,16 +1,16 @@
 <template>
-    <div id="lessonform">
+    <div class="lessonform">
       <h1>Create Lesson</h1>
         <div v-if="!formSuccess">
           <div>
             <div>
-              <input type="text" placeholder="Lesson name" v-model="name">
+              <input class="lessonform" type="text" placeholder="Lesson name" v-model="name">
             </div>
             <div>
-              <input type="text" placeholder="Location" v-model="venue">
+              <input class="lessonform" type="text" placeholder="Location" v-model="venue">
             </div>
             <div>
-              <select id="state" v-model="frequency">
+              <select class="lessonform" id="state" v-model="frequency">
                 <option value="" disabled selected>Pick Frequency</option>
                 <option>unsteady</option>
                 <option>weekly</option>
@@ -18,17 +18,17 @@
               </select>
             </div>
             <div>
-              <date-picker :date="lessondate" :option="timeoption"></date-picker>
+              <date-picker class="lessonform" :date="lessondate" :option="timeoption"></date-picker>
             </div>
             <div>
-              <autocomplete-vue :source="pupils" placeholder="search pupils" results-display="firstname" @selected="addPupilToLesson" /> 
+              <autocomplete-vue class="lessonform" :source="pupils" placeholder="search pupils" results-display="firstname" @selected="addPupilToLesson" /> 
               <div v-if="selectedpupils">
                 <p v-for="pupil in selectedpupils" :key="pupil.value"> 
-                  {{ pupil.selectedObject.firstname }} {{ pupil.selectedObject.lastname }}
+                  {{ pupil.selectedObject.firstname }} {{ pupil.selectedObject.lastname }} <button v-on:click.prevent="removeSelectedPupil(pupil.selectedObject)">X</button>
                 </p>
               </div>
             </div>
-            <button type="submit" v-on:click.prevent="submitForm">Create</button>
+            <button class="lessonform" type="submit" v-on:click.prevent="submitForm">Create</button>
           </div>
         <div v-if="formError">{{formError}}</div>
       </div>
@@ -107,6 +107,11 @@ export default {
       this.selectedpupils.push(pupil);
       console.log(pupil)
     },
+    removeSelectedPupil(outPupil) {
+      console.log(outPupil);
+      // remove from array
+      this.selectedpupils = this.selectedpupils.filter(selectedpupil => selectedpupil.selectedObject.id != outPupil.id);
+    },
     resetFormSuccess() {
       this.name = '';
       this.venue = '';
@@ -154,5 +159,10 @@ a {
 }
 #slim {
   width: 50%;
+}
+.lessonform {
+  margin-left: auto;
+  margin-right: auto;
+  width: 66%;
 }
 </style>

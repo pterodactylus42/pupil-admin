@@ -57,3 +57,11 @@ export default {
   }
 }
 </script>
+
+<style>
+.week {
+  margin-left: auto;
+  margin-right: auto;
+  width: 66%;
+}
+</style>
