@@ -3,6 +3,8 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import createPersistedState from 'vuex-persistedstate'
 
+// todo: add this globally
+let apiUrl = 'http://127.0.0.1:3000/';
 
 Vue.use(Vuex)
 
@@ -27,24 +29,20 @@ export default new Vuex.Store({
     UPDATE_LESSONS(state, payload) {
       state.lessons = [];
       state.lessons = payload.data;
-      console.log(payload)
     },
     UPDATE_PUPILS(state, payload) {
       state.pupils = [];
       state.pupils = payload.data;
-      console.log(payload)
     }
   },
   actions: {
     async getState({commit}) {
-      console.log(' get initial state, lessons:')
-      await axios.get("http://localhost:3000/lessons")
+      await axios.get(`${apiUrl}lessons`)
       .then(response => commit('UPDATE_LESSONS',response))
       .catch(error => {
           console.log(error)
       });
-      console.log(' get initial state, pupils:')
-      await axios.get("http://localhost:3000/pupils")
+      await axios.get(`${apiUrl}pupils`)
       .then(response => commit('UPDATE_PUPILS',response))
       .catch(error => {
           console.log(error)

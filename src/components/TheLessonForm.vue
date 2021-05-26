@@ -12,9 +12,9 @@
             <div>
               <select id="state" v-model="frequency">
                 <option value="" disabled selected>Pick Frequency</option>
-                <option>Unsteady</option>
-                <option>Weekly</option>
-                <option>Every two weeks</option>
+                <option>unsteady</option>
+                <option>weekly</option>
+                <option>every two weeks</option>
               </select>
             </div>
             <div>
@@ -49,9 +49,6 @@ export default {
   data() {
     return {
       lessonID: '',
-      // status: '',
-      // type: '',
-      // autoname: '',
       name: '',
       frequency: '',
       venue: '',
@@ -88,13 +85,9 @@ export default {
       }
       const sendlesson = {
         id: this.lessonID,
-        // status: this.status,
-        // type: 1,
-        // autoname: "default lesson name",
         name: this.name,
         frequency: this.frequency,
         date: this.lessondate.time,
-        // weekday: this.lessondate.time.slice(-2),
         duration: 30, 
         venue: this.venue,
         pupils: this.selectedpupils
@@ -107,6 +100,7 @@ export default {
         });
       console.log('Lesson created :-)');
       this.formSuccess = true;
+      this.$store.dispatch('getState');
       return true;
     },
     addPupilToLesson(pupil) {

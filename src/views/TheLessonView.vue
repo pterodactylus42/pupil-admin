@@ -1,13 +1,12 @@
 <template>
   <div class="lessonview">
     <h1>This is the lesson view</h1>
-    <div v-for="lesson in lessons" :key="lesson.id" class="lesson">
+    <div v-for="lesson in this.$store.state.lessons" :key="lesson.id" class="lesson">
         <ul>
-            <li v-if="!lesson.name">{{lesson.autoname}}</li>
-            <li v-else>{{lesson.name}}</li>
-            <li>Let's meet on {{lesson.date}}, {{lesson.weekday}} </li>
+            <li>{{lesson.name}}</li>
+            <li>Let's meet on {{lesson.date}}</li>
             <li>We're doing this {{lesson.frequency}}</li>
-            <li>Hope you get there on time: {{lesson.location}}</li>
+            <li>Hope you get there on time: {{lesson.venue}}</li>
             <div v-if="lesson.pupils">
               <h5> Participants: </h5>
               <p v-for="pupil in lesson.pupils" :key="pupil.value"> 
@@ -23,18 +22,6 @@
 <script>
 import axios from 'axios';
 export default {
-    data() {
-        return {
-            lessons: null
-        }
-    },
-    mounted() {
-          axios.get("http://localhost:3000/lessons")
-            .then(response => this.lessons = response.data)
-            .catch(error => {
-              console.log(error)
-            });
-    },
     methods: {
       deletelesson(id) {
         console.log('deleting lesson no. ' + id);
@@ -44,26 +31,9 @@ export default {
             method: 'DELETE',
             url: 'http://127.0.0.1:3000/lessons/' + id
           });
-          axios.get("http://localhost:3000/lessons")
-            .then(response => this.lessons = response.data)
-            .catch(error => {
-              console.log(error)
-            });
+          this.$store.dispatch('getState');
         }
       },
-      async loadLessons() {
-        this.loading = true;
-        let apiUrl = 'http://127.0.0.1:3000/lessons/';
-        console.log('loading lessons ...');
-        try {
-          let response = await this.axios.get(apiUrl);
-          this.lessons = response.data;
-          console.log(response);
-        } catch(e) {
-          console.error(e);
-        }
-        this.loading = false;
-      }
     }
 }
 </script>

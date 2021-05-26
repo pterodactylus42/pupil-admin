@@ -8,6 +8,15 @@ https://blog.sqreen.com/authentication-best-practices-vue/
 https://github.com/sqreen/vue-authentication-example
 thank you very much thibaud :-)
 
+there is a datepicker in here from
+https://npm.io/package/vue-datepicker
+which in itself utilizes the moment library.
+
+and some autocompletion
+https://github.com/charliekassel/vuejs-autocomplete
+to make searching more neat.
+
+
 api endpoints
 GET /pupils
 POST /pupils
@@ -19,6 +28,7 @@ database structure
 
 lessons:
     id,
+    name,
     pupils,
     works,
     date,

@@ -23,6 +23,11 @@ Vue.use(axios)
 
 import moment from 'moment';
 Vue.prototype.$moment = moment;
+moment.updateLocale('en', {
+  week: {
+    dow : 1, // Monday is the first day of the week.
+  }
+});
 
 
 Vue.config.productionTip = false
@@ -31,7 +36,6 @@ new Vue({
   router,
   store,
   created() {
-    console.log('main vue instance created ...')
     this.$store.dispatch('getState');
   },
   render: h => h(App)

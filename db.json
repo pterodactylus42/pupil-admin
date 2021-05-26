@@ -2,19 +2,19 @@
   "lessons": [
     {
       "id": 1,
-      "name": "gitarrenstunde",
+      "name": "Beginner Group Guitar",
       "frequency": "Weekly",
-      "date": "2021-05-20 14:00 Th",
+      "date": "2021-05-24 12:00 Mo",
       "duration": 30,
-      "venue": "musikschule",
+      "venue": "Rehearsal Room",
       "pupils": [
         {
           "value": 1,
-          "display": "johann",
+          "display": "herman",
           "selectedObject": {
-            "firstname": "johann",
-            "lastname": "wolfgang",
-            "created": "2021-05-24T17:42:20.092Z",
+            "firstname": "herman",
+            "lastname": "melville",
+            "created": "2021-05-24T17:54:29.738Z",
             "works": [],
             "id": 1
           }
@@ -22,22 +22,108 @@
       ]
     },
     {
-      "name": "klavierunterricht",
+      "name": "Circular Breathing",
       "frequency": "Weekly",
-      "date": "2021-05-23 22:56 Su",
+      "date": "2021-05-25 14:00 Tu",
       "duration": 30,
-      "venue": "musikschule",
+      "venue": "Escape Room",
       "pupils": null,
       "id": 2
     },
     {
-      "name": "didgeridoo",
-      "frequency": "Unsteady",
-      "date": "2021-05-17 20:56 Mo",
+      "id": 3,
+      "name": "Yoga",
+      "frequency": "Weekly",
+      "date": "2021-05-26 19:30 We",
       "duration": 30,
-      "venue": "wiese",
+      "venue": "Empty Room",
+      "pupils": [
+        {
+          "value": 3,
+          "display": "amadeus",
+          "selectedObject": {
+            "firstname": "amadeus",
+            "lastname": "falco",
+            "created": "2021-05-24T17:54:51.204Z",
+            "works": null,
+            "id": 3
+          }
+        }
+      ]
+    },
+    {
+      "name": "Coffee Break",
+      "frequency": "Weekly",
+      "date": "2021-05-27 17:00 Th",
+      "duration": 30,
+      "venue": "Teachers Room",
       "pupils": null,
-      "id": 3
+      "id": 4
+    },
+    {
+      "id": 5,
+      "name": "Group reflection",
+      "frequency": "weekly",
+      "date": "2021-05-28 20:00 Fr",
+      "duration": 30,
+      "venue": "Arena",
+      "pupils": [
+        {
+          "value": 1,
+          "display": "herman",
+          "selectedObject": {
+            "firstname": "herman",
+            "lastname": "melville",
+            "created": "2021-05-24T17:54:29.738Z",
+            "works": [],
+            "id": 1
+          }
+        },
+        {
+          "value": 2,
+          "display": "johann wolfgang",
+          "selectedObject": {
+            "firstname": "johann wolfgang",
+            "lastname": "mozart",
+            "created": "2021-05-24T17:54:43.099Z",
+            "works": null,
+            "id": 2
+          }
+        },
+        {
+          "value": 3,
+          "display": "amadeus",
+          "selectedObject": {
+            "firstname": "amadeus",
+            "lastname": "falco",
+            "created": "2021-05-24T17:54:51.204Z",
+            "works": null,
+            "id": 3
+          }
+        },
+        {
+          "value": 4,
+          "display": "karl",
+          "selectedObject": {
+            "firstname": "karl",
+            "lastname": "valentin",
+            "created": "2021-05-24T20:25:47.895Z",
+            "works": [],
+            "id": 4
+          }
+        },
+        {
+          "value": 5,
+          "display": "joan",
+          "selectedObject": {
+            "firstname": "joan",
+            "lastname": "osborne",
+            "created": "2021-05-26T12:14:46.585Z",
+            "works": [],
+            "id": 5
+          }
+        }
+      ]
     }
   ],
   "pupils": [
@@ -61,6 +147,20 @@
       "created": "2021-05-24T17:54:51.204Z",
       "works": null,
       "id": 3
+    },
+    {
+      "firstname": "karl",
+      "lastname": "valentin",
+      "created": "2021-05-24T20:25:47.895Z",
+      "works": [],
+      "id": 4
+    },
+    {
+      "firstname": "joan",
+      "lastname": "osborne",
+      "created": "2021-05-26T12:14:46.585Z",
+      "works": [],
+      "id": 5
     }
   ]
 }

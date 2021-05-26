@@ -1,6 +1,6 @@
 <template>
     <div class="weekday">
-        <h4>{{day}} schedule:</h4>
+        <h4>{{day}}</h4>
         <div v-for="lesson in lessonsOnDay" :key="lesson.id"> 
             <lesson-card :lesson="lesson"></lesson-card> 
         </div>
