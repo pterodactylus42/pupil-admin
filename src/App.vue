@@ -12,6 +12,7 @@
       <router-link to="/register">Register</router-link> |
       <router-link to="/login">Login</router-link>
     </div>
+    <div id="nav-footer"></div>
     <router-view />
   </div>
 </template>
@@ -36,31 +37,36 @@ export default {
 </script>
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  line-height: 1.1;
+  font-weight: lighter;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
 }
-
 #nav {
-  padding: 30px;
+  font-family: 'Courier New', Courier, monospace;
+  font-variant-caps: small-caps;
+  padding: 25px;
 }
-
 #nav a {
   font-weight: bold;
-  color: #2c3e50;
+  color: #415569;
 }
-
+#nav-footer {
+  width: 70%;
+  margin: auto;
+  height: 1px;
+  background: linear-gradient(45deg, rgb(46, 46, 102), rgb(214, 189, 243) );
+}
 a {
   font-weight: bold;
   text-decoration: underline;
   cursor: crosshair;
   color: #191236;
 }
-
-
 #nav a.router-link-exact-active {
-  color: #42b983;
+  color: rgb(8, 8, 39);
 }
 </style>

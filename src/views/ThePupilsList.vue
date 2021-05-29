@@ -64,5 +64,7 @@ export default {
 /* Add some padding inside the card container */
 .pupilslist {
   padding: 2px 2px 2px 2px;
+  width: 66%;
+  margin: auto;
 }
 </style>>

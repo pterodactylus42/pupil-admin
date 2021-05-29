@@ -2,8 +2,8 @@
     <div class="lessoncard">
         <table class="lessontable">
             <tr>
-                <td>{{ lessontime  }} : </td>
-                <td>{{ lesson.name }} - </td>
+                <td>{{ lessontime  }}: </td>
+                <td>{{ lesson.name }}</td>
                 <td>{{ lesson.venue }}</td>
             </tr>
             <tr class="participants">
@@ -14,7 +14,7 @@
                     </ul>
                 </td>
                 <td>
-                    <button @click="lessondetails(lesson.id)">Details</button>
+                    <button @click="lessondetails(lesson.id)">🔎</button>
                 </td>
             </tr>
         </table>
@@ -65,13 +65,15 @@ export default {
     padding: 2px 2px 2px 2px;
 }
 
-table td:nth-child(1) { 
+table td:nth-child(odd) { 
   background-color: #e4ebf2; 
   color: #000; 
+  text-align: right;
 }
 
 td, tr {
-    border-color: gray;
+    border: 1px dotted;
+    border-color: lightgray;
     margin: 2em 2em 2em 2em;
 }
 </style>>

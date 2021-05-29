@@ -24,7 +24,7 @@
               <autocomplete-vue class="lessonform" :source="pupils" placeholder="search pupils" results-display="firstname" @selected="addPupilToLesson" /> 
               <div v-if="selectedpupils">
                 <p v-for="pupil in selectedpupils" :key="pupil.value"> 
-                  {{ pupil.selectedObject.firstname }} {{ pupil.selectedObject.lastname }} <button v-on:click.prevent="removeSelectedPupil(pupil.selectedObject)">X</button>
+                  {{ pupil.selectedObject.firstname }} {{ pupil.selectedObject.lastname }} <button v-on:click.prevent="removeSelectedPupil(pupil.selectedObject)">&#10005;</button>
                 </p>
               </div>
             </div>
