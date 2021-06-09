@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <div v-if="isLoggedIn" id="nav">
+      <div id="logo"><img src="./assets/logo.png" height="64px"></div>
       <router-link to="/">Home</router-link> |
       <router-link to="/createlesson">Create Lesson</router-link> | 
       <router-link to="/createpupil">Create Pupil</router-link> |
@@ -9,6 +10,7 @@
       <a @click="logout">Logout {{ whoAmI }}</a>
     </div>
     <div v-else>
+      <div id="logo"><img src="./assets/logo.png" height="48px"></div>
       <router-link to="/register">Register</router-link> |
       <router-link to="/login">Login</router-link>
     </div>
@@ -68,5 +70,8 @@ a {
 }
 #nav a.router-link-exact-active {
   color: rgb(8, 8, 39);
+}
+#logo {
+  font-weight: bolder;
 }
 </style>

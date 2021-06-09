@@ -1,7 +1,7 @@
 <template>
   <div class="week">
     <h3>{{thisWeeksMonday.format('dd DD-MM-YYYY')}} -  {{thisWeeksSunday.format('dd DD-MM-YYYY')}}</h3>
-    <div class="days">
+    <div class="days" v-if="this.$store.getters.isAuthenticated">
         <div class="monday">
           <week-day :day="thisWeeksMonday.format('dddd')"></week-day>
         </div>
@@ -18,6 +18,7 @@
           <week-day :day="thisWeeksFriday.format('dddd')"></week-day>
         </div>
     </div>
+    <div v-else>Login please... </div>
   </div>
 </template>
 

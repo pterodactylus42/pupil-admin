@@ -1,6 +1,6 @@
 <template>
   <div class="pupilslist">
-    <h1>This is the Pupils List</h1>
+    <h1>Pupils Overview</h1>
     <div v-for="pupil in pupils" :key="pupil.id" class="pupil">
         <ul>
             <li>My name is {{pupil.firstname}} {{pupil.lastname}}</li>

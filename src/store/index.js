@@ -1,10 +1,9 @@
 import axios from 'axios'
 import Vue from 'vue'
 import Vuex from 'vuex'
-import createPersistedState from 'vuex-persistedstate'
+//import createPersistedState from 'vuex-persistedstate'
 
-// todo: add this globally
-let apiUrl = 'http://127.0.0.1:3000/';
+let apiUrl = 'http://localhost:3000/';
 
 Vue.use(Vuex)
 
@@ -56,8 +55,10 @@ export default new Vuex.Store({
       await dispatch('LogIn', UserForm)
     },
     async LogIn({commit}, User) {
-      await axios.post('login', User)
+      await axios.post(`${apiUrl}login`, JSON.stringify(User))
       await commit('SET_USER', User.get('username'))
+      // wouldn't it be nicer to use then here???
+      // anyways, have to implement backend first
     },
     async LogOut({commit}) {
       let user = null
@@ -65,6 +66,6 @@ export default new Vuex.Store({
     }
   },
   modules: {
-  },
-  plugins: [createPersistedState()]
+  }//,
+//  plugins: [createPersistedState()]
 })

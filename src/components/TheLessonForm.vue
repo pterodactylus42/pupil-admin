@@ -92,13 +92,17 @@ export default {
         venue: this.venue,
         pupils: this.selectedpupils
       }
-      axios.post("http://localhost:3000/lessons", sendlesson)
-        .then(response => this.lessonID = response.data.lessonID)
+      var axiosHeaders = {
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        }
+      }
+      axios.post("http://localhost:3000/lessons", sendlesson, axiosHeaders)
+        .then(response => console.log('response: ' + response))
         .catch(error => {
           this.errorMessage = error.message;
           console.error("error ", error);
         });
-      console.log('Lesson created :-)');
       this.formSuccess = true;
       this.$store.dispatch('getState');
       return true;
@@ -122,11 +126,12 @@ export default {
     }
   },
   mounted() {
-    axios.get("http://localhost:3000/pupils")
-      .then(response => this.pupils = response.data)
-      .catch(error => {
-        console.log(error)
-      });
+    this.$store.dispatch('getState')
+    // axios.get("http://localhost:3000/pupils")
+    //   .then(response => this.pupils = response.data)
+    //   .catch(error => {
+    //     console.log(error)
+    //   });
     }
 };
 </script>

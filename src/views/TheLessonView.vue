@@ -1,6 +1,6 @@
 <template>
   <div class="lessonview">
-    <h1>This is the lesson view</h1>
+    <h1>Lessons overview</h1>
     <div v-for="lesson in this.$store.state.lessons" :key="lesson.id" class="lesson">
         <ul>
             <li>{{lesson.name}}</li>
@@ -27,10 +27,11 @@ export default {
         console.log('deleting lesson no. ' + id);
         var really = confirm("do you really want to delete lesson " + id + "?");
         if(really) {
-          axios({
-            method: 'DELETE',
-            url: 'http://127.0.0.1:3000/lessons/' + id
-          });
+          axios.delete('http://localhost:3000/lessons/' + id);
+          // axios({
+          //   method: 'DELETE',
+          //   url: 'http://127.0.0.1:3000/lessons/' + id
+          // });
           this.$store.dispatch('getState');
         }
       },

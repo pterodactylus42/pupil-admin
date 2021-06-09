@@ -16,6 +16,11 @@ and some autocompletion
 https://github.com/charliekassel/vuejs-autocomplete
 to make searching more neat.
 
+thanks so much to robin wieruch for giving deep insights
+into backend and api's.... this project contains a fork 
+of his node backend boilerplate
+https://github.com/rwieruch/node-express-server-rest-api
+
 
 api endpoints
 GET /pupils
