@@ -4,8 +4,11 @@ import router from './router'
 import store from './store'
 
 import axios from 'axios'
-axios.defaults.withCredentials = true
-axios.defaults.baseURL = 'http://localhost:8080/'
+axios.defaults.withCredentials = true;
+axios.defaults.baseURL = 'http://localhost:8080/';
+axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+axios.defaults.crossDomain = true;
+Vue.prototype.$http = axios;
 
 axios.interceptors.response.use(undefined, function (error) {
   if (error) {

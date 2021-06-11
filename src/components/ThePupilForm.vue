@@ -38,7 +38,6 @@ export default {
   },
   methods: {
     submitForm() {
-      // todo!!!
       let errors = false;
       if (this.firstname === '') errors = true;
       if (this.lastname === '') errors = true;
@@ -46,7 +45,6 @@ export default {
         this.formError = 'Please fill in all fields....';
         return false;
       }
-      // your sendmail function or anything goes here
       const sendpupil = {
         firstname: this.firstname,
         lastname: this.lastname,
@@ -59,7 +57,7 @@ export default {
           this.errorMessage = error.message;
           console.error("error ", error);
         });
-      console.log('Pupil created :-)');
+      this.$store.dispatch('getState');
       this.formSuccess = true;
       return true;
     },

@@ -42,7 +42,6 @@
 <script>
 import myDatepicker from 'vue-datepicker';
 import Autocomplete from 'vuejs-auto-complete';
-import axios from 'axios';
 
 export default {
   name: 'TheLessonForm',
@@ -92,16 +91,12 @@ export default {
         venue: this.venue,
         pupils: this.selectedpupils
       }
-      var axiosHeaders = {
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded'
-        }
-      }
-      axios.post("http://localhost:3000/lessons", sendlesson, axiosHeaders)
-        .then(response => console.log('response: ' + response))
+      console.log(sendlesson)
+      this.$http.post("http://localhost:3000/lessons", sendlesson)
+        .then(response => console.log(response))
         .catch(error => {
           this.errorMessage = error.message;
-          console.error("error ", error);
+          console.log("error ", error);
         });
       this.formSuccess = true;
       this.$store.dispatch('getState');
@@ -126,12 +121,8 @@ export default {
     }
   },
   mounted() {
-    this.$store.dispatch('getState')
-    // axios.get("http://localhost:3000/pupils")
-    //   .then(response => this.pupils = response.data)
-    //   .catch(error => {
-    //     console.log(error)
-    //   });
+    this.$store.dispatch('getState');
+    this.pupils = this.$store.getters.statePupils;
     }
 };
 </script>

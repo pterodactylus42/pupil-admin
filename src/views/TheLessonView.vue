@@ -20,19 +20,18 @@
 </template>
 
 <script>
-import axios from 'axios';
+//import axios from 'axios';
 export default {
     methods: {
       deletelesson(id) {
         console.log('deleting lesson no. ' + id);
-        var really = confirm("do you really want to delete lesson " + id + "?");
+        var really = confirm("sorry, delete lesson " + id + " will work when the database is attached... " +
+        "but cors is working fine as you can see in the network tab of the console. after you click ok, " + 
+        "you see options request, delete request to the api and two get requests to update app state.");
         if(really) {
-          axios.delete('http://localhost:3000/lessons/' + id);
-          // axios({
-          //   method: 'DELETE',
-          //   url: 'http://127.0.0.1:3000/lessons/' + id
-          // });
+          this.$http.delete("http://localhost:3000/lessons/" + id).then(()=>{
           this.$store.dispatch('getState');
+          });
         }
       },
     }

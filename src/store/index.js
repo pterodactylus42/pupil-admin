@@ -16,6 +16,7 @@ export default new Vuex.Store({
   getters: {
     isAuthenticated: state => !!state.user,
     StateUser: state => state.user,
+    statePupils: state => state.pupils
   },
   mutations: {
     SET_USER(state, username) {
