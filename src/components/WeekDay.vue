@@ -4,6 +4,9 @@
         <div v-for="lesson in lessonsOnDay" :key="lesson.id"> 
             <lesson-card :lesson="lesson"></lesson-card> 
         </div>
+    <div v-for="lesson in lessonsUnsteady" :key="lesson.id">
+        <lesson-card :lesson="lesson"></lesson-card>
+    </div>
     </div>
 </template>
 <script>
@@ -13,19 +16,36 @@ export default {
     components: {
         LessonCard
     },
-    props: [ 'day' ],
+    props: [ 'day', 'date' ],
     data: function() {
     return {
             lessonsOnDay: [],
+            lessonsUnsteady: []
         };
     },
     created() {
         this.$store.state.lessons.forEach(element => {
-            if( element.date.slice(-2) === this.day.slice(0,2) && (element.frequency != "Unsteady") ) {
+            if( element.date.slice(-2) === this.day.slice(0,2) && (element.frequency != "unsteady") ) {
                 this.lessonsOnDay.push(element);
             }
-            // todo: add Unsteady lessons if in this week
         });
+        // add unsteady lessons if today
+        this.$store.state.lessons.forEach(element => {
+            //console.log('element: ' + element.date.slice(0,10) + ' date: ' + this.today.slice(0,10));
+            if( element.date.slice(0,10) === this.today.slice(0,10) && (element.frequency === "unsteady") ) {
+                this.lessonsUnsteady.push(element);
+                //console.log('pushed ' + element);
+            }
+        });
+    },
+    computed: {
+        today: function() {
+            return this.$moment(this.date).format('YYYY-MM-DD HH:MM dd');
+        }
     }
 }
 </script>
+
+<style>
+
+</style>

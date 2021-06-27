@@ -3,19 +3,19 @@
     <h3>{{thisWeeksMonday.format('dd DD-MM-YYYY')}} -  {{thisWeeksSunday.format('dd DD-MM-YYYY')}}</h3>
     <div class="days" v-if="this.$store.getters.isAuthenticated">
         <div class="monday">
-          <week-day :day="thisWeeksMonday.format('dddd')"></week-day>
+          <week-day :day="thisWeeksMonday.format('dddd')" :date="thisWeeksMonday"></week-day>
         </div>
         <div class="tuesday">
-          <week-day :day="thisWeeksTuesday.format('dddd')"></week-day>
+          <week-day :day="thisWeeksTuesday.format('dddd')" :date="thisWeeksTuesday"></week-day>
         </div>
         <div class="wednesday">
-          <week-day :day="thisWeeksWednesday.format('dddd')"></week-day>
+          <week-day :day="thisWeeksWednesday.format('dddd')" :date="thisWeeksWednesday"></week-day>
         </div>
         <div class="thursday">
-          <week-day :day="thisWeeksThursday.format('dddd')"></week-day>
+          <week-day :day="thisWeeksThursday.format('dddd')" :date="thisWeeksThursday"></week-day>
         </div>
         <div class="friday">
-          <week-day :day="thisWeeksFriday.format('dddd')"></week-day>
+          <week-day :day="thisWeeksFriday.format('dddd')" :date="thisWeeksFriday"></week-day>
         </div>
     </div>
     <div v-else>Login please... </div>

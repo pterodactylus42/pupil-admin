@@ -1,9 +1,11 @@
 import axios from 'axios'
 import Vue from 'vue'
 import Vuex from 'vuex'
-//import createPersistedState from 'vuex-persistedstate'
+// import createPersistedState from 'vuex-persistedstate'
 
-let apiUrl = 'http://localhost:3000/';
+// let apiUrl = 'http://52ccbe8.online-server.cloud:3000/';
+// let apiUrl = 'http://yourserver.com:3000/';
+ let apiUrl = 'http://localhost:3000/';
 
 Vue.use(Vuex)
 
@@ -49,17 +51,20 @@ export default new Vuex.Store({
       });
     },
     async Register({dispatch}, form) {
-      await axios.post('register', form)
+      await axios.post(`${apiUrl}register`, form)
       let UserForm = new FormData()
       UserForm.append('username', form.username)
       UserForm.append('password', form.password)
       await dispatch('LogIn', UserForm)
     },
     async LogIn({commit}, User) {
-      await axios.post(`${apiUrl}login`, JSON.stringify(User))
-      await commit('SET_USER', User.get('username'))
+      await axios.post(`${apiUrl}login`, User)
+      .then(response => console.log(response))
+      // .then(response => commit('SET_USER', response))
+      // await commit('SET_USER', User.get('username'))
       // wouldn't it be nicer to use then here???
       // anyways, have to implement backend first
+      console.log(commit);
     },
     async LogOut({commit}) {
       let user = null

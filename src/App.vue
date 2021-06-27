@@ -2,9 +2,9 @@
   <div id="app">
     <div v-if="isLoggedIn" id="nav">
       <div id="logo"><img src="./assets/logo.png" height="64px"></div>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/createlesson">Create Lesson</router-link> | 
-      <router-link to="/createpupil">Create Pupil</router-link> |
+      <router-link to="/">Week</router-link> |
+      <router-link to="/createlesson">New Lesson</router-link> | 
+      <router-link to="/createpupil">New Pupil</router-link> |
       <router-link to="/pupilslist">View Pupils</router-link> |
       <router-link to="/lessonview">View Lessons</router-link> |
       <a @click="logout">Logout {{ whoAmI }}</a>

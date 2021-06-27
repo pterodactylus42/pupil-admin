@@ -21,7 +21,6 @@
 </template>
 
 <script>
-import axios from 'axios';
 
 export default {
   name: 'TheLessonForm',
@@ -51,7 +50,7 @@ export default {
         created: new Date(),
         works: this.works,
       }
-      axios.post("http://localhost:3000/pupils", sendpupil)
+      this.$http.post("/pupils", sendpupil)
         .then(response => this.id = response.data.id)
         .catch(error => {
           this.errorMessage = error.message;

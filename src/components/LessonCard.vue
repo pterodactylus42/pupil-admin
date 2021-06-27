@@ -1,5 +1,5 @@
 <template>
-    <div class="lessoncard">
+    <div class="lessoncard" v-bind:class="{ unsteady: isUnsteady }">
         <table class="lessontable">
             <tr>
                 <td>{{ lessontime  }}: </td>
@@ -13,8 +13,8 @@
                         <li class="pupil" v-for="pupil in lesson.pupils" :key="pupil.id">{{ pupil.selectedObject.firstname }} {{pupil.selectedObject.lastname}}</li>
                     </ul>
                 </td>
-                <td>
-                    <button @click="lessondetails(lesson.id)">🔎</button>
+                <td class="details" @click="lessondetails(lesson.id)">
+                    🔎
                 </td>
             </tr>
         </table>
@@ -29,20 +29,27 @@ export default {
             let time = this.$moment(this.lesson.date, 'YYYY-MM-DD hh:mm dd');
             return time.format('hh:mm');
         },
+        isUnsteady: function() {
+          return this.lesson.frequency === "unsteady";
+        },
     },
     methods: {
       lessondetails(id) {
-        console.log('details for lesson no. ' + id);
-        var really = confirm("lesson " + id + " date " + this.lesson.date + " duration " + this.lesson.duration);
-        if(really) {
-          console.log(this.lesson);
-        }
+        // console.log('details for lesson no. ' + id);
+        // var really = confirm("lesson " + id + " date " + this.lesson.date + " duration " + this.lesson.duration);
+        // if(really) {
+        //   console.log(this.lesson);
+        // }
+        console.log(id)
+        this.$router.push('lessonview/' + id)
       },
     }    
 }
 </script>
 <style scoped>
 .lessoncard {
+  width: fit-content;
+  margin: auto;
   padding: 2px 2px 2px 2px;
   /* Add shadows to create the "card" effect */
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -68,12 +75,21 @@ export default {
 table td:nth-child(odd) { 
   background-color: #e4ebf2; 
   color: #000; 
-  text-align: right;
 }
 
 td, tr {
     border: 1px dotted;
     border-color: lightgray;
     margin: 2em 2em 2em 2em;
+}
+
+.details {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.unsteady {
+    background-color:lightgray;
 }
 </style>>

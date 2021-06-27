@@ -40,6 +40,7 @@ export default {
     async submit() {
       try {
         await this.Register(this.form);
+        // todo: check posts
         this.$router.push("/posts");
         this.showError = false
       } catch (error) {

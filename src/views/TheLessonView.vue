@@ -25,12 +25,10 @@ export default {
     methods: {
       deletelesson(id) {
         console.log('deleting lesson no. ' + id);
-        var really = confirm("sorry, delete lesson " + id + " will work when the database is attached... " +
-        "but cors is working fine as you can see in the network tab of the console. after you click ok, " + 
-        "you see options request, delete request to the api and two get requests to update app state.");
+        var really = confirm("really delete lesson " + id + "?");
         if(really) {
-          this.$http.delete("http://localhost:3000/lessons/" + id).then(()=>{
-          this.$store.dispatch('getState');
+          this.$http.delete("/lessons/" + id).then(()=>{
+            this.$store.dispatch('getState');
           });
         }
       },

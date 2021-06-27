@@ -14,6 +14,7 @@
 </template>
 
 <script>
+//todo: convert to this.$http
 import axios from 'axios'
 export default {
     data() {
@@ -22,7 +23,7 @@ export default {
         }
     },
     mounted() {
-        axios.get("http://localhost:3000/pupils")
+        axios.get("/pupils")
             .then(response => this.pupils = response.data)
             .catch(error => {
                 console.log(error)
@@ -34,7 +35,7 @@ export default {
         "but cors is working fine as you can see in the network tab of the console. after you click ok, " + 
         "you see options request, delete request to the api and two get requests to update app state.");
         if(really) {
-          this.$http.delete("http://localhost:3000/pupils/" + id).then(()=>{
+          this.$http.delete("/pupils/" + id).then(()=>{
           this.$store.dispatch('getState');
           });
         }

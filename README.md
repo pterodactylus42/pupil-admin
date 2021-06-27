@@ -21,14 +21,14 @@ into backend and api's.... this project contains a fork
 of his node backend boilerplate
 https://github.com/rwieruch/node-express-server-rest-api
 
-
-api endpoints
+## api endpoints
 GET /pupils
 POST /pupils
 GET /lessons
 POST /lessons
+POST /login
 
-database structure
+## database structure
 ------------------
 
 lessons:
@@ -52,6 +52,12 @@ works:
     composer,
     title
 
+notices:
+    id,
+    lessonid,
+    created,
+    content
+
 venues:
     id,
     name,
@@ -67,6 +73,30 @@ frequencies:
 durations:
     id,
     minutes
+
+┌──────────────┐ ┌──────────────┐ ┌───────────────┐
+│              │ │              │ │               │
+│ Lessons      │ │ Pupils       │ │ Notices       │
+│              │ │              │ │               │
+│   id         │ │  id          │ │  id           │
+│   name       │ │  firstname   │ │  lessonid     │
+│   pupils     │ │  lastname    │ │  created      │
+│   works      │ │  created     │ │  content      │
+│   date       │ │              │ │               │
+│   venues     │ │              │ │               │
+│   frequency  │ │              │ │               │
+│   duration   │ │              │ │               │
+│              │ │              │ │               │
+└──────────────┘ └──────────────┘ └───────────────┘
+
+
+## customization
+Remember to adjust the server settings to fit your project. 
+You need to modify....
+
+    axios.defaults.baseURL in main.js,
+    apiUrl in store/index.js
+
 
 ## Project setup
 ```

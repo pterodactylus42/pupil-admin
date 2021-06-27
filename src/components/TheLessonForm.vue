@@ -92,14 +92,15 @@ export default {
         pupils: this.selectedpupils
       }
       console.log(sendlesson)
-      this.$http.post("http://localhost:3000/lessons", sendlesson)
-        .then(response => console.log(response))
+      this.$http.post("/lessons", sendlesson)
+        .then(()=>{
+          this.$store.dispatch('getState')})
         .catch(error => {
           this.errorMessage = error.message;
           console.log("error ", error);
         });
       this.formSuccess = true;
-      this.$store.dispatch('getState');
+      //this.$store.dispatch('getState');
       return true;
     },
     addPupilToLesson(pupil) {

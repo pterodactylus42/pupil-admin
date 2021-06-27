@@ -52,6 +52,12 @@ const routes = [
     name: 'LessonView',
     component: TheLessonView,
     meta: { requiresAuth: true },
+  },
+  {
+    path: '/lessonview/:id',
+    name: 'LessonView',
+    component: TheLessonView,
+    meta: { requiresAuth: true },
   }
 ]
 
@@ -72,7 +78,7 @@ router.beforeEach((to, from, next) => {
     next()
   }
 })
-
+// todo: check posts
 router.beforeEach((to, from, next) => {
   if (to.matched.some((record) => record.meta.guest)) {
     if (store.getters.isAuthenticated) {
