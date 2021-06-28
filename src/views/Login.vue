@@ -17,7 +17,7 @@
   </div>
 </template>
 <script>
-import { mapActions } from "vuex";
+// import { mapActions } from "vuex";
 export default {
   name: "Login",
   components: {},
@@ -31,15 +31,15 @@ export default {
     };
   },
   methods: {
-    ...mapActions(["LogIn"]),
+    //...mapActions(["LogIn"]),
     async submit() {
       const User = {
         "username": this.form.username,
         "password": this.form.password,
       }
       try {
-          await this.LogIn(User);
-          this.$router.push("/");
+          await this.$store.dispatch('LogIn', User)
+          .then(this.$router.push("/"));
           this.showError = false
       } catch (error) {
         this.showError = true

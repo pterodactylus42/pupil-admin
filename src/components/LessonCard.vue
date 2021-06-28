@@ -9,8 +9,8 @@
             <tr class="participants">
                 <td>Participants: </td>
                 <td>
-                    <ul v-if="lesson.pupils">
-                        <li class="pupil" v-for="pupil in lesson.pupils" :key="pupil.id">{{ pupil.selectedObject.firstname }} {{pupil.selectedObject.lastname}}</li>
+                    <ul v-if="myPupils">
+                        <li class="pupil" v-for="pupil in myPupils" :key="pupil.id">{{ pupil.firstname }} {{pupil.lastname}}</li>
                     </ul>
                 </td>
                 <td class="details" @click="lessondetails(lesson.id)">
@@ -24,6 +24,11 @@
 export default {
     name: 'LessonCard',
     props: [ 'lesson' ],
+    data () {
+        return {
+            myPupils: [],
+        }
+    },
     computed: {
         lessontime: function() {
             let time = this.$moment(this.lesson.date, 'YYYY-MM-DD hh:mm dd');
@@ -35,15 +40,16 @@ export default {
     },
     methods: {
       lessondetails(id) {
-        // console.log('details for lesson no. ' + id);
-        // var really = confirm("lesson " + id + " date " + this.lesson.date + " duration " + this.lesson.duration);
-        // if(really) {
-        //   console.log(this.lesson);
-        // }
-        console.log(id)
-        this.$router.push('lessonview/' + id)
+        this.$router.push('lessondetails/' + id)
       },
-    }    
+    },
+    mounted() {
+        for(var i = 0; i < this.$store.state.pupils.length; i++) {
+            if(this.lesson.id == this.$store.state.pupils[i].lessonId) {
+                this.myPupils.push(this.$store.state.pupils[i]);
+            }
+        }
+    },
 }
 </script>
 <style scoped>

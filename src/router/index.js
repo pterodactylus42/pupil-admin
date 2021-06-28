@@ -8,6 +8,7 @@ import TheLessonView from '../views/TheLessonView.vue'
 import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
 import store from '../store'
+import LessonDetails from '../components/LessonDetails.vue'
 
 Vue.use(VueRouter)
 
@@ -54,9 +55,9 @@ const routes = [
     meta: { requiresAuth: true },
   },
   {
-    path: '/lessonview/:id',
-    name: 'LessonView',
-    component: TheLessonView,
+    path: '/lessondetails/:id',
+    name: 'LessonDetails',
+    component: LessonDetails,
     meta: { requiresAuth: true },
   }
 ]

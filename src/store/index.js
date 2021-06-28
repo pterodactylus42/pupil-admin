@@ -18,7 +18,12 @@ export default new Vuex.Store({
   getters: {
     isAuthenticated: state => !!state.user,
     StateUser: state => state.user,
-    statePupils: state => state.pupils
+    statePupils: state => {
+      return state.pupils
+    },
+    stateLessons: state => {
+      return state.lessons
+    },
   },
   mutations: {
     SET_USER(state, username) {
@@ -58,13 +63,12 @@ export default new Vuex.Store({
       await dispatch('LogIn', UserForm)
     },
     async LogIn({commit}, User) {
+      let whoami = {};
       await axios.post(`${apiUrl}login`, User)
-      .then(response => console.log(response))
-      // .then(response => commit('SET_USER', response))
-      // await commit('SET_USER', User.get('username'))
-      // wouldn't it be nicer to use then here???
-      // anyways, have to implement backend first
-      console.log(commit);
+      .then(function (response) {
+        whoami = JSON.parse(response.config.data)
+      });
+      commit('SET_USER', whoami.username)
     },
     async LogOut({commit}) {
       let user = null

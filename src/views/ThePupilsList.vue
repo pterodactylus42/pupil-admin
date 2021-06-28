@@ -5,7 +5,7 @@
         <ul>
             <li>My name is {{pupil.firstname}} {{pupil.lastname}}</li>
             <li>My id is {{pupil.id}}</li>
-            <li>I was created on {{pupil.created}}</li>
+            <li>I was created on {{pupil.createdAt}}</li>
             <li v-if="works">{{pupil.works}}</li>
         </ul>
         <button @click="deletepupil(pupil.id)">Delete</button>
