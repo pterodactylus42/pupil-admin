@@ -20,11 +20,17 @@
             <div>
               <date-picker class="lessonform" :date="lessondate" :option="timeoption"></date-picker>
             </div>
+            <!-- <div>
+              <input class="lessonform" type="text" placeholder="New pupil firstname" v-model="newpupilFirstname">
+            </div>
+            <div>
+              <input class="lessonform" type="text" placeholder="New pupil lastname" v-model="newpupilLastname">
+            </div> -->
             <div>
               <autocomplete-vue class="lessonform" :source="pupils" placeholder="search pupils" results-display="firstname" @selected="addPupilToLesson" /> 
               <div v-if="selectedpupils">
                 <p v-for="pupil in selectedpupils" :key="pupil.value"> 
-                  {{ pupil.selectedObject.firstname }} {{ pupil.selectedObject.lastname }} <button v-on:click.prevent="removeSelectedPupil(pupil.selectedObject)">&#10005;</button>
+                  {{ pupil.firstname }} {{ pupil.lastname }} <button v-on:click.prevent="removeSelectedPupil(pupil)">&#10005;</button>
                 </p>
               </div>
             </div>
@@ -53,6 +59,9 @@ export default {
       venue: '',
       pupils: [],
       selectedpupils: [],
+      newpupilFirstname: '',
+      newpupilLastname: '',
+      newpupils: [],
       formError: '',
       formSuccess: false,
 
@@ -89,9 +98,10 @@ export default {
         date: this.lessondate.time,
         duration: 30, 
         venue: this.venue,
-        pupils: this.selectedpupils
+        pupils: this.mySelectedPupils
       }
-      console.log(sendlesson)
+      console.log(sendlesson);
+      console.log(this.mySelectedPupils);
       this.$http.post("/lessons", sendlesson)
         .then(()=>{
           this.$store.dispatch('getState')})
@@ -104,13 +114,11 @@ export default {
       return true;
     },
     addPupilToLesson(pupil) {
-      this.selectedpupils.push(pupil);
-      console.log(pupil)
+      this.selectedpupils.push(pupil.selectedObject);
     },
     removeSelectedPupil(outPupil) {
-      console.log(outPupil);
       // remove from array
-      this.selectedpupils = this.selectedpupils.filter(selectedpupil => selectedpupil.selectedObject.id != outPupil.id);
+      this.selectedpupils = this.selectedpupils.filter(selectedpupil => selectedpupil.id != outPupil.id);
     },
     resetFormSuccess() {
       this.name = '';
@@ -119,12 +127,25 @@ export default {
       this.lessondate = {};
       this.selectedpupils = null;
       this.formSuccess = false;
-    }
+      this.$store.dispatch('getState');
+    },
   },
   mounted() {
     this.$store.dispatch('getState');
     this.pupils = this.$store.getters.statePupils;
+  },
+  computed: {
+    mySelectedPupils() {
+      let allSelected = [];
+      for(var i = 0; i < this.selectedpupils.length; i++) {
+        allSelected.push({
+          firstname: this.selectedpupils[i].firstname,
+          lastname: this.selectedpupils[i].lastname,
+        });
+      }
+      return JSON.stringify(allSelected);
     }
+  }
 };
 </script>
 

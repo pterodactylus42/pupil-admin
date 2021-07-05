@@ -1,7 +1,7 @@
 <template>
   <div class="pupilslist">
     <h1>Pupils Overview</h1>
-    <div v-for="pupil in pupils" :key="pupil.id" class="pupil">
+    <div v-for="pupil in this.$store.state.pupils" :key="pupil.id" class="pupil">
         <ul>
             <li>My name is {{pupil.firstname}} {{pupil.lastname}}</li>
             <li>My id is {{pupil.id}}</li>
@@ -14,33 +14,17 @@
 </template>
 
 <script>
-//todo: convert to this.$http
-import axios from 'axios'
 export default {
-    data() {
-        return {
-            pupils: []
-        }
-    },
-    mounted() {
-        axios.get("/pupils")
-            .then(response => this.pupils = response.data)
-            .catch(error => {
-                console.log(error)
-            });
-    },
-    methods: {
-      deletepupil(id) {
-        var really = confirm("sorry, delete pupil " + id + " will work when the database is attached... " +
-        "but cors is working fine as you can see in the network tab of the console. after you click ok, " + 
-        "you see options request, delete request to the api and two get requests to update app state.");
-        if(really) {
-          this.$http.delete("/pupils/" + id).then(()=>{
-          this.$store.dispatch('getState');
-          });
-        }
+  methods: {
+    deletepupil(id) {
+      var really = confirm("really delete pupil " + id + "?");
+      if(really) {
+        this.$http.delete("/pupils/" + id).then(()=>{
+        this.$store.dispatch('getState');
+        });
       }
     }
+  }
 }
 </script>
 

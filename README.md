@@ -1,4 +1,5 @@
 # pupil-admin
+
 keep in mind everything you did with your pupils
 manage your lessons in a weekly schedule
 plan your week at a glance
@@ -22,20 +23,24 @@ of his node backend boilerplate
 https://github.com/rwieruch/node-express-server-rest-api
 
 ## api endpoints
+
 GET /pupils
+
 POST /pupils
+
 GET /lessons
+
 POST /lessons
+
 POST /login
 
-## database structure
-------------------
+### database structure
+
+tables are connected using sequelize associations.
 
 lessons:
     id,
     name,
-    pupils,
-    works,
     date,
     venues,
     frequency,
@@ -52,7 +57,7 @@ works:
     composer,
     title
 
-notices:
+notes:
     id,
     lessonid,
     created,
@@ -74,31 +79,20 @@ durations:
     id,
     minutes
 
-┌──────────────┐ ┌──────────────┐ ┌───────────────┐
-│              │ │              │ │               │
-│ Lessons      │ │ Pupils       │ │ Notices       │
-│              │ │              │ │               │
-│   id         │ │  id          │ │  id           │
-│   name       │ │  firstname   │ │  lessonid     │
-│   pupils     │ │  lastname    │ │  created      │
-│   works      │ │  created     │ │  content      │
-│   date       │ │              │ │               │
-│   venues     │ │              │ │               │
-│   frequency  │ │              │ │               │
-│   duration   │ │              │ │               │
-│              │ │              │ │               │
-└──────────────┘ └──────────────┘ └───────────────┘
 
+#### customization
 
-## customization
-Remember to adjust the server settings to fit your project. 
+Remember to adjust the api server settings to fit your project. 
 You need to modify....
 
     axios.defaults.baseURL in main.js,
     apiUrl in store/index.js
 
+check out the backend here:
+https://github.com/pterodactylus42/pa-backend
 
-## Project setup
+
+###### Project setup
 ```
 npm install
 ```
@@ -106,6 +100,11 @@ npm install
 ### Compiles and hot-reloads for development
 ```
 npm run serve
+```
+
+### development with nodemon
+```
+npm run start
 ```
 
 ### Compiles and minifies for production

@@ -23,7 +23,7 @@
 <script>
 
 export default {
-  name: 'TheLessonForm',
+  name: 'ThePupilForm',
   data() {
     return {
       id: '',

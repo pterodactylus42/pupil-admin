@@ -15,9 +15,9 @@
                 </div> 
             </ul>
             <div class="notices">
-                <textarea v-model="lessonNotice" placeholder="add notices ..."></textarea>
+                <textarea v-model="lessonNotice" placeholder="add notes ..."></textarea>
             </div>
-            <button @click="savenotice(lessonWithId.id)">Save</button>
+            <button @click="savenotes(lessonWithId.id)">Save</button>
         </div>
     </div>
 </template>
@@ -46,12 +46,20 @@ export default {
         // dunno
     },
     methods: {
-      savenotice(lessonid) {
-        console.log('saving new notice for lesson no. ' + lessonid);
+      savenotes(lessonid) {
+        console.log('saving new notes for lesson no. ' + lessonid);
         // todo: add save logic
-        // this.$http.post("/lessons/" + id).then(()=>{
+
+        this.$http.post('/notices', {
+        lessonId: lessonid,
+        noteString: this.lessonNotice
+        })
+        .then((response) => {
         this.$store.dispatch('getState');
-        //});
+        console.log(response);
+        }, (error) => {
+        console.log(error);
+        });
       }
     },
 }
