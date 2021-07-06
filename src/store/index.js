@@ -3,9 +3,8 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 // import createPersistedState from 'vuex-persistedstate'
 
-// let apiUrl = 'http://52ccbe8.online-server.cloud:3000/';
 // let apiUrl = 'http://yourserver.com:3000/';
- let apiUrl = 'http://localhost:3000/';
+let apiUrl = 'http://localhost:3000/';
 
 Vue.use(Vuex)
 

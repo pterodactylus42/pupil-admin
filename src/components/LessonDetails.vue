@@ -14,6 +14,13 @@
                 </p>
                 </div> 
             </ul>
+            <div class="noticesfromdb" v-if="notesFromDatabase">
+                <p v-for="notice in notesFromDatabase" :key="notice.id">
+                    {{notice.createdAt | formatDate}} : 
+                    {{notice.content}}
+                    <button @click="deletenote(notice.id)">Delete</button>
+                </p>
+            </div>
             <div class="notices">
                 <textarea v-model="lessonNotice" placeholder="add notes ..."></textarea>
             </div>
@@ -29,6 +36,7 @@ export default {
             lessonid: this.$route.params.id,
             lessons: this.$store.state.lessons,
             lessonNotice: '',
+            notesFromDatabase: [],
         };
     }, 
     computed: {
@@ -42,24 +50,40 @@ export default {
             return found;
         },
     },
-    mounted() {
-        // dunno
+    async mounted() {
+        // get notices for this lesson from db
+        await this.$http.get('/notices/' + this.lessonid)
+            .then(response => this.notesFromDatabase = response.data)
+            .catch(error => {
+                console.log(error)
+            });
     },
     methods: {
-      savenotes(lessonid) {
-        console.log('saving new notes for lesson no. ' + lessonid);
-        // todo: add save logic
-
-        this.$http.post('/notices', {
+      async savenotes(lessonid) {
+        await this.$http.post('/notices', {
         lessonId: lessonid,
         noteString: this.lessonNotice
         })
-        .then((response) => {
-        this.$store.dispatch('getState');
-        console.log(response);
+        .then(() => {
+            this.getnotes();
         }, (error) => {
-        console.log(error);
+            console.log(error);
         });
+      },
+      async getnotes() {
+        await this.$http.get('/notices/' + this.lessonid)
+            .then(response => this.notesFromDatabase = response.data)
+            .catch(error => {
+                console.log(error)
+            });          
+      },
+      async deletenote(noteId) {
+      var really = confirm("really delete note " + noteId + "?");
+      if(really) {
+        await this.$http.delete("/notices/" + noteId).then(()=>{
+            this.getnotes();
+        });
+      }
       }
     },
 }

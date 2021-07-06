@@ -24,15 +24,10 @@ https://github.com/rwieruch/node-express-server-rest-api
 
 ## api endpoints
 
-GET /pupils
-
-POST /pupils
-
-GET /lessons
-
-POST /lessons
-
-POST /login
+/pupils
+/lessons
+/notices
+/login
 
 ### database structure
 
@@ -90,6 +85,8 @@ You need to modify....
 
 check out the backend here:
 https://github.com/pterodactylus42/pa-backend
+
+if you use this backend, remember to adjust the cors origin to the appropriate value.
 
 
 ###### Project setup

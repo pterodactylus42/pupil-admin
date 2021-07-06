@@ -20,14 +20,22 @@
             <div>
               <date-picker class="lessonform" :date="lessondate" :option="timeoption"></date-picker>
             </div>
-            <!-- <div>
-              <input class="lessonform" type="text" placeholder="New pupil firstname" v-model="newpupilFirstname">
+            <div class="newpupils">
+              <div v-if="newpupils">
+                <p v-for="pupil in newpupils" :key="pupil.lastname">
+                  {{pupil.firstname}} {{pupil.lastname}}
+                </p>
+              </div>
+              <div>
+                <input class="lessonform" type="text" placeholder="New pupil firstname" v-model="newpupilFirstname">
+              </div>
+              <div>
+                <input class="lessonform" type="text" placeholder="New pupil lastname" v-model="newpupilLastname">
+              </div>
+              <button class="newpupils" type="submit" v-on:click.prevent="addNewPupil">Add</button>
             </div>
             <div>
-              <input class="lessonform" type="text" placeholder="New pupil lastname" v-model="newpupilLastname">
-            </div> -->
-            <div>
-              <autocomplete-vue class="lessonform" :source="pupils" placeholder="search pupils" results-display="firstname" @selected="addPupilToLesson" /> 
+              <autocomplete-vue class="lessonform" :source="pupils" placeholder="search pupils from other lessons" results-display="firstname" @selected="addPupilToLesson" /> 
               <div v-if="selectedpupils">
                 <p v-for="pupil in selectedpupils" :key="pupil.value"> 
                   {{ pupil.firstname }} {{ pupil.lastname }} <button v-on:click.prevent="removeSelectedPupil(pupil)">&#10005;</button>
@@ -116,6 +124,15 @@ export default {
     addPupilToLesson(pupil) {
       this.selectedpupils.push(pupil.selectedObject);
     },
+    addNewPupil() {
+      let pushPupil = {
+        firstname: this.newpupilFirstname,
+        lastname: this.newpupilLastname,
+      }
+      this.newpupils.push(pushPupil);
+      this.newpupilFirstname = '';
+      this.newpupilLastname = '';
+    },
     removeSelectedPupil(outPupil) {
       // remove from array
       this.selectedpupils = this.selectedpupils.filter(selectedpupil => selectedpupil.id != outPupil.id);
@@ -142,6 +159,11 @@ export default {
           firstname: this.selectedpupils[i].firstname,
           lastname: this.selectedpupils[i].lastname,
         });
+      }
+      if(this.newpupils) {
+        for(var j = 0; j < this.newpupils.length; j++) {
+          allSelected.push(this.newpupils[j]);
+        }
       }
       return JSON.stringify(allSelected);
     }

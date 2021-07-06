@@ -24,3 +24,4 @@ pnpm-debug.log*
 
 *.tar.xz
 db.json
+pa-dist.tar.gz

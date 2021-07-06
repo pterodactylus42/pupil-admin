@@ -16,11 +16,11 @@
 <script>
 export default {
   methods: {
-    deletepupil(id) {
+    async deletepupil(id) {
       var really = confirm("really delete pupil " + id + "?");
       if(really) {
-        this.$http.delete("/pupils/" + id).then(()=>{
-        this.$store.dispatch('getState');
+        await this.$http.delete("/pupils/" + id).then(()=>{
+          this.$store.dispatch('getState');
         });
       }
     }

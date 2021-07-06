@@ -31,8 +31,8 @@ export default {
     },
     computed: {
         lessontime: function() {
-            let time = this.$moment(this.lesson.date, 'YYYY-MM-DD hh:mm dd');
-            return time.format('hh:mm');
+            let time = this.$moment.utc(this.lesson.date, 'YYYY-MM-DD HH:mm dd');
+            return time.format('HH:mm');
         },
         isUnsteady: function() {
           return this.lesson.frequency === "unsteady";
