@@ -11,6 +11,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     user: null,
+    token: null,
     lessons: [],
     pupils: []
   },
@@ -25,8 +26,9 @@ export default new Vuex.Store({
     },
   },
   mutations: {
-    SET_USER(state, username) {
-      state.user = username
+    SET_USER_DATA(state, response) {
+      state.user = response.data.user;
+      state.token = response.data.token;
     },
     LOG_OUT(state) {
       state.user = null
@@ -62,12 +64,8 @@ export default new Vuex.Store({
       await dispatch('LogIn', UserForm)
     },
     async LogIn({commit}, User) {
-      let whoami = {};
       await axios.post(`${apiUrl}login`, User)
-      .then(function (response) {
-        whoami = JSON.parse(response.config.data)
-      });
-      commit('SET_USER', whoami.username)
+      .then(res => commit('SET_USER_DATA', res))
     },
     async LogOut({commit}) {
       let user = null

@@ -17,7 +17,7 @@
             <button type="submit"> Submit</button>
           </form>
       </div>
-      <p v-if="showError" id="error">Username already exists</p>
+      <p v-if="showError" id="error">Error registering :-(</p>
   </div>
 </template>
 <script>
