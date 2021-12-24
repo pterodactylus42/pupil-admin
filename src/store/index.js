@@ -58,10 +58,15 @@ export default new Vuex.Store({
     },
     async Register({dispatch}, form) {
       await axios.post(`${apiUrl}register`, form)
-      let UserForm = new FormData()
-      UserForm.append('username', form.username)
-      UserForm.append('password', form.password)
-      await dispatch('LogIn', UserForm)
+      .catch(error => {
+        console.log(error)
+      });
+      await dispatch('LogInAfterRegister', form);
+    },
+    async LogInAfterRegister({commit}, form) {
+      console.log('LogInAfterRegister: ' + form);
+      await axios.post(`${apiUrl}login`, form)
+      .then(res => commit('SET_USER_DATA', res))
     },
     async LogIn({commit}, User) {
       await axios.post(`${apiUrl}login`, User)
